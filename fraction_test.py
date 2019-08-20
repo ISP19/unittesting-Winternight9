@@ -26,15 +26,12 @@ class FractionTest(unittest.TestCase):
         f = Fraction(99)
         self.assertEqual("99", f.__str__())
 
-    # TODO Write tests for __init__, __eq__, +, *.
-    # Here is an example, but you must add more test cases.  
-    # The test requires that your __eq__ is correct.
     def test_add(self):
         # 3/4 = 2/3 + 1/12
-        self.assertEqual(Fraction(3,4), Fraction(1,12)+ Fraction(2,3))
-        self.assertEqual(Fraction(70,72),Fraction(6,8)+ Fraction(2,9))
-        self.assertEqual(Fraction(1),Fraction(1,3)+ Fraction(2,3)) 
-        self.assertEqual(Fraction(1),Fraction(7.5/10)+ Fraction(2.5/10)) #float + float number
+        self.assertEqual(Fraction(3,4), Fraction(1,12) + Fraction(2,3))
+        self.assertEqual(Fraction(70,72),Fraction(6,8) + Fraction(2,9))
+        self.assertEqual(Fraction(1),Fraction(1,3) + Fraction(2,3)) 
+        self.assertEqual(Fraction(1),Fraction(7.5/10) + Fraction(2.5/10)) #float + float number
 
     def test_fraction_with_denominator_is_empty_list(self):
         #test wrong type

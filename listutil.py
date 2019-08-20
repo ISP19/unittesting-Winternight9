@@ -23,7 +23,6 @@ def unique(list):
     for i in list:
         if i not in unique_list:
             unique_list.append(i)
-    
     return unique_list
 
 

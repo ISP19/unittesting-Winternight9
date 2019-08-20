@@ -1,6 +1,7 @@
 import math
 from math import gcd 
 
+
 class Fraction:
     """A fraction with a numerator and denominator and arithmetic operations.
 
@@ -19,16 +20,18 @@ class Fraction:
         if not (isinstance(numerator, int) or isinstance(numerator, float)): 
             raise TypeError
         
-        if not (isinstance(denominator,int) or isinstance(denominator, float)): 
+        elif not (isinstance(denominator,int) or isinstance(denominator, float)): 
             raise TypeError
 
         #if input is 0/0 raise ValueError if it 1/0 or -1/0 give it infinity value by using mathematical function.
         if denominator ==0:
             if numerator ==0:
                 raise ValueError
+            
             elif numerator > 0:
                 self.numerator = math.inf
                 self.denominator = 0
+            
             elif numerator < 0:
                 self.numerator = -math.inf
                 self.denominator = 0 
@@ -51,14 +54,10 @@ class Fraction:
                 numerator = -numerator
                 denominator = abs(denominator)
                     
-
             self.gcd = gcd(numerator, denominator)
-            new_numerator = numerator/self.gcd
-            new_denominator = denominator/self.gcd
-            self.numerator = new_numerator
-            self.denominator = new_denominator
+            self.numerator = numerator/self.gcd
+            self.denominator = denominator/self.gcd
 
-    
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
@@ -75,9 +74,7 @@ class Fraction:
         if not isinstance(frac,Fraction):
             return False
         else:    
-            new_nume = self.numerator * frac.numerator
-            new_deno = self.denominator * frac.denominator
-            return Fraction(new_nume,new_deno)
+            return Fraction(self.numerator * frac.numerator,self.denominator * frac.denominator)
 
     def __sub__(self, frac):
         #a/b - c/d = (ad-bc)/(b*d)
@@ -101,7 +98,7 @@ class Fraction:
                   
     def __str__(self):
         #output if it can divide we will show it number but if it 
-        if self.numerator% self.denominator == 0:
+        if self.numerator % self.denominator == 0:
             return f"{int(self.numerator/self.denominator)}"   
         else:
             return f"{int(self.numerator)}/{int(self.denominator)}"    
