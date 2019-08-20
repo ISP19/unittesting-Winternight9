@@ -26,6 +26,17 @@ class FractionTest(unittest.TestCase):
         f = Fraction(99)
         self.assertEqual("99", f.__str__())
 
+    def test_init(self):
+        f = Fraction(5,2)
+        self.assertEqual(5,f.numerator)
+        self.assertEqual(2,f.denominator)    
+        f= Fraction(2)
+        self.assertEqual(2,f.numerator)
+        self.assertEqual(1,f.denominator)
+        f = Fraction(-3,8)
+        self.assertEqual(-3,f.numerator)
+        self.assertEqual(8,f.denominator)        
+
     def test_add(self):
         # 3/4 = 2/3 + 1/12
         self.assertEqual(Fraction(3,4), Fraction(1,12) + Fraction(2,3))
