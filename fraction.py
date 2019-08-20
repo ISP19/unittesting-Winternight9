@@ -17,10 +17,10 @@ class Fraction:
            and denominator (default 1).
         """
         #check numerator and denominator type
-        if not (isinstance(numerator, int) or isinstance(numerator, float)): 
+        if type(numerator) is not int: 
             raise TypeError
         
-        elif not (isinstance(denominator,int) or isinstance(denominator, float)): 
+        elif type(denominator) is not int: 
             raise TypeError
 
         #if input is 0/0 raise ValueError if it 1/0 or -1/0 give it infinity value by using mathematical function.
@@ -35,16 +35,8 @@ class Fraction:
             elif numerator < 0:
                 self.numerator = -math.inf
                 self.denominator = 0 
-        
-        #we use gcd function to find fraction but gcd can't calculate float number that why we using while loop to change it to be int number.        
+               
         else:
-            while (numerator != int(numerator)) or (denominator != int(denominator)):
-                numerator = numerator * 10
-                denominator = denominator * 10
-            
-            numerator = int(numerator)
-            denominator = int(denominator)
-            
             #check if input in form 5/-6 change it to -5/6 and check if both negative than turn the two signs into a plus sign
             if numerator < 0 and denominator < 0:
                 numerator = abs(numerator)
@@ -55,8 +47,8 @@ class Fraction:
                 denominator = abs(denominator)
                     
             self.gcd = gcd(numerator, denominator)
-            self.numerator = numerator/self.gcd
-            self.denominator = denominator/self.gcd
+            self.numerator = int(numerator/self.gcd)
+            self.denominator = int(denominator/self.gcd)
 
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.

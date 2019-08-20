@@ -42,7 +42,7 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(3,4), Fraction(1,12) + Fraction(2,3))
         self.assertEqual(Fraction(70,72),Fraction(6,8) + Fraction(2,9))
         self.assertEqual(Fraction(1),Fraction(1,3) + Fraction(2,3)) 
-        self.assertEqual(Fraction(1),Fraction(7.5/10) + Fraction(2.5/10)) #float + float number
+        self.assertEqual(Fraction(1),Fraction(7,10) + Fraction(3,10)) #float + float number
 
     def test_fraction_with_denominator_is_empty_list(self):
         #test wrong type
