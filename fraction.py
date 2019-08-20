@@ -65,7 +65,7 @@ class Fraction:
         if not isinstance(frac,Fraction):
             return False
         else:    
-            new_nume = (self.numerator * frac.denominator) + (frac.numerator*self.denominator)
+            new_nume = (self.numerator * frac.denominator) + (frac.numerator * self.denominator)
             new_deno = self.denominator * frac.denominator 
             return Fraction(new_nume,new_deno)
 
@@ -81,7 +81,7 @@ class Fraction:
         if not isinstance(frac,Fraction):
             return False
         else:    
-            new_nume = (self.numerator * frac.denominator) - (frac.numerator*self.denominator)
+            new_nume = (self.numerator * frac.denominator) - (frac.numerator * self.denominator)
             new_deno = self.denominator * frac.denominator 
             return Fraction(new_nume,new_deno)
 
