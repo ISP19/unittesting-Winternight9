@@ -31,15 +31,54 @@ class FractionTest(unittest.TestCase):
     # The test requires that your __eq__ is correct.
     def test_add(self):
         # 3/4 = 2/3 + 1/12
-        self.assertEqual(Fraction(3,4), Fraction(1,12)+Fraction(2,3))
+        self.assertEqual(Fraction(3,4), Fraction(1,12)+ Fraction(2,3))
+        self.assertEqual(Fraction(70,72),Fraction(6,8)+ Fraction(2,9))
+        self.assertEqual(Fraction(1),Fraction(1,3)+ Fraction(2,3)) 
+        self.assertEqual(Fraction(1),Fraction(7.5/10)+ Fraction(2.5/10)) #float + float number
+
+    def test_fraction_with_denominator_is_empty_list(self):
+        #test wrong type
+        with self.assertRaises(TypeError): 
+            frac = Fraction(5,[])
+
+    def test_fraction_with_numerator_is_str(self):
+        #test wrong type
+        with self.assertRaises(TypeError):
+            frac = Fraction("aaa",6)   
+
+    def test_zero_over_zero(self):
+        # test ValueError 0/0
+        with self.assertRaises(ValueError):
+            frac = Fraction(0,0)   
+
+    def test_mul(self):
+        self.assertEqual(Fraction(6,8),Fraction(2,2) * Fraction(3,4))
+        self.assertEqual(Fraction(1),Fraction(4,9) * Fraction(9,4))
+
+    def test_sub(self):
+        self.assertEqual(Fraction(5,10),Fraction(8,10) - Fraction(3,10))
+        self.assertEqual(Fraction(-3,7),Fraction(3,7) - Fraction(6,7))
+
+    def test_gt(self):
+        self.assertTrue(Fraction(1,2) > Fraction(1,3))    
+        self.assertFalse(Fraction(1,10) > Fraction(1,3))  
+
+    def test_neg(self):
+        self.assertEqual(Fraction(1,4), -Fraction(1,-4))
+        self.assertEqual(Fraction(-10,20), -Fraction(1,2))
 
     def test_eq(self):
         f = Fraction(1,2)
         g = Fraction(-40,-80)
-        h = Fraction(10000,20001) # not quite 1/2
+        h = Fraction(10000,20001) # not quite 1/2 
+        inf = Fraction(1,0) # infinity value
+        negative_inf = Fraction(-1,0) # negative infinity value
+        negative_inf2 = Fraction(-12312313131232312,0) #massive number 
         self.assertTrue(f == g)
         self.assertTrue(f.__eq__(g))  # same thing
         self.assertFalse(f == h)
         self.assertFalse(f.__eq__(h))
-        #TODO write more tests using other cases.
-        # Consider special values like 0, 1/0, -1/0
+        self.assertFalse(f == inf) #fracetion != infinity
+        self.assertFalse(inf == negative_inf) #infinity != negative infinity 
+        self.assertTrue(negative_inf == negative_inf2) #negative infinity == negative infinity 
+

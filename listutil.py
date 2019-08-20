@@ -8,16 +8,27 @@ def unique(list):
         a new list containing only distinct elements from list
 
     Examples:
-    >>> unique([5])
-    [5]
-    >>> unique(["b","a","a","b","b","b","a","a"])
-    ["b","a"]
     >>> unique([])
     []
+    >>> unique([10])
+    [10]
+    >>> unique([6,6,6,6,6,6,6,6,6,6,6,6,6])
+    [6]
+    >>> unique(["b","a","a","b","b","b","a","a"])
+    ['b', 'a']
     """
-    pass   # remove this and write the actual code
+    if type(list) != type([]):
+        raise TypeError
+    unique_list = []
+    for i in list:
+        if i not in unique_list:
+            unique_list.append(i)
+    
+    return unique_list
+
 
 if __name__ == "__main__":
     """Run the doctests in all methods."""
     import doctest
     doctest.testmod(verbose=True)
+ 
