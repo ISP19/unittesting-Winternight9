@@ -87,7 +87,21 @@ class Fraction:
     def __neg__(self):
         #a/b ==> -a/b
         return Fraction(-self.numerator,self.denominator)
-                  
+
+    def __pow__(self,frac):
+        #(a/b)**c/d   
+        if not isinstance(frac,Fraction):
+            return False 
+        return Fraction(int(self.numerator) ** int(frac.numerator/frac.denominator),int(self.denominator) ** int(frac.numerator/frac.denominator))
+
+
+    def __ge__(self,frac):
+        #a/b >= c/d = a*d >= c*b 
+        if not isinstance(frac,Fraction):
+            return False
+        else:
+            return (self.numerator * frac.denominator) >= (frac.numerator * self.denominator)
+
     def __str__(self):
         #output if it can divide we will show it number but if it 
         if self.numerator % self.denominator == 0:
