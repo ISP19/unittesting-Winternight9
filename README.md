@@ -30,4 +30,5 @@ Write a table describing your test cases.
 |4/9 * 9/4               |  1                  |
 |3/7 - 6/7               |  -3/7               |
 |1/2 > 1/3               |  true               |
-|5/6 ** 2                |  25/36
+|5/6 ** 2                |  25/36              |
+|2/3 >= 2/3              |  true               | 
