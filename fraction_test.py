@@ -54,11 +54,6 @@ class FractionTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             frac = Fraction("aaa",6)   
 
-    def test_zero_over_zero(self):
-        # test ValueError 0/0
-        with self.assertRaises(ValueError):
-            frac = Fraction(0,0)   
-
     def test_mul(self):
         self.assertEqual(Fraction(6,8),Fraction(2,2) * Fraction(3,4))
         self.assertEqual(Fraction(1),Fraction(4,9) * Fraction(9,4))
@@ -88,6 +83,7 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(4,9),Fraction(2,3) / Fraction(3,2))
 
     def test_eq(self):
+        nan = Fraction(0,0)
         one = Fraction(1)
         f = Fraction(1,2)
         g = Fraction(-40,-80)
@@ -95,6 +91,7 @@ class FractionTest(unittest.TestCase):
         inf = Fraction(1,0) # infinity value
         negative_inf = Fraction(-1,0) # negative infinity value
         negative_inf2 = Fraction(-12312313131232312,0) #massive number 
+        x = inf + negative_inf       
         self.assertTrue(f == g)
         self.assertTrue(f.__eq__(g))  # same thing
         self.assertFalse(f == h)
@@ -103,4 +100,7 @@ class FractionTest(unittest.TestCase):
         self.assertFalse(inf == negative_inf) #infinity != negative infinity 
         self.assertTrue(negative_inf == negative_inf2) #negative infinity == negative infinity 
         self.assertFalse(one == inf ) # 1 != infinity
-
+        self.assertEqual(nan,x) #NaN from 0/0 = NaN from infinity + (-infinity)
+        self.assertFalse(nan == Fraction(0)) # NaN != 0/1 
+        self.assertFalse(nan == inf) #Nan != infinity
+        

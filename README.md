@@ -20,7 +20,7 @@ Write a table describing your test cases.
 
 | Test case              |  Expected Result    |
 |------------------------|---------------------|
-| 0/0                    |  value error        |
+| 0/0                    |  NaN                |
 | 1/0                    |  infinity           |
 | -1/0                   |  negative infinity  |
 | input list             |  type error         |

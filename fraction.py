@@ -25,15 +25,16 @@ class Fraction:
 
         #if input is 0/0 raise ValueError if it 1/0 or -1/0 give it infinity value by using mathematical function.
         if denominator ==0:
-            if numerator ==0:
-                raise ValueError
-            
+            if numerator == 0:
+                self.numerator = 0
+                self.denominator = 0
+
             elif numerator > 0:
-                self.numerator = math.inf
+                self.numerator = 1
                 self.denominator = 0
             
             elif numerator < 0:
-                self.numerator = -math.inf
+                self.numerator = -1
                 self.denominator = 0 
                
         else:
