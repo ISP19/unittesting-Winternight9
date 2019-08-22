@@ -103,4 +103,4 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(nan,x) #NaN from 0/0 = NaN from infinity + (-infinity)
         self.assertFalse(nan == Fraction(0)) # NaN != 0/1 
         self.assertFalse(nan == inf) #Nan != infinity
-        
+        self.assertTrue(nan == x) #NaN = Nan       

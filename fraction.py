@@ -95,7 +95,6 @@ class Fraction:
             return False 
         return Fraction(int(self.numerator) ** int(frac.numerator/frac.denominator),int(self.denominator) ** int(frac.numerator/frac.denominator))
 
-
     def __ge__(self,frac):
         #a/b >= c/d = a*d >= c*b 
         if not isinstance(frac,Fraction):
