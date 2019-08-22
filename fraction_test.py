@@ -83,8 +83,12 @@ class FractionTest(unittest.TestCase):
         self.assertTrue(Fraction(2,3) >= Fraction(2,3))
         self.assertFalse(Fraction(5,6) >= Fraction(1))
 
+    def test_truediv(self):
+        self.assertEqual(Fraction(1),Fraction(1,2) / Fraction(1,2))
+        self.assertEqual(Fraction(4,9),Fraction(2,3) / Fraction(3,2))
 
     def test_eq(self):
+        one = Fraction(1)
         f = Fraction(1,2)
         g = Fraction(-40,-80)
         h = Fraction(10000,20001) # not quite 1/2 
@@ -98,4 +102,5 @@ class FractionTest(unittest.TestCase):
         self.assertFalse(f == inf) #fracetion != infinity
         self.assertFalse(inf == negative_inf) #infinity != negative infinity 
         self.assertTrue(negative_inf == negative_inf2) #negative infinity == negative infinity 
+        self.assertFalse(one == inf ) # 1 != infinity
 

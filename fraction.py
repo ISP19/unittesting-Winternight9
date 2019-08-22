@@ -102,6 +102,13 @@ class Fraction:
         else:
             return (self.numerator * frac.denominator) >= (frac.numerator * self.denominator)
 
+    def __truediv__(self,frac):
+        #(a/b) / (c/d)) = a*d / b*c 
+        if not isinstance(frac,Fraction):
+            return False   
+        else:
+            return Fraction(self.numerator * frac.denominator,self.denominator * frac.numerator)        
+
     def __str__(self):
         #output if it can divide we will show it number but if it 
         if self.numerator % self.denominator == 0:

@@ -32,3 +32,4 @@ Write a table describing your test cases.
 |1/2 > 1/3               |  true               |
 |5/6 ** 2                |  25/36              |
 |2/3 >= 2/3              |  true               | 
+|(2/3) / (3/2)           |  4/9                |
