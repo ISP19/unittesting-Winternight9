@@ -17,8 +17,6 @@ def unique(list):
     >>> unique(["b","a","a","b","b","b","a","a"])
     ['b', 'a']
     """
-    if type(list) != type([]):
-        raise TypeError
     unique_list = []
     for i in list:
         if i not in unique_list:

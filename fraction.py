@@ -56,7 +56,7 @@ class Fraction:
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
         if not isinstance(frac,Fraction):
-            return False
+            raise TypeError
         else:    
             new_nume = (self.numerator * frac.denominator) + (frac.numerator * self.denominator)
             new_deno = self.denominator * frac.denominator 
