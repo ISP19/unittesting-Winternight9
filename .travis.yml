@@ -1,9 +1,16 @@
 language: python
-python:
-  - "3.6"      # current default Python on Travis CI
-# command to install dependencies
+
+python: "3.6"
+
+# don't clone more than necessary
+git:
+  depth: 1
+
+  
+# Install dependencies
 install:
   - pip install -r requirements.txt
-# command to run tests
-script:
+
+# script to run tests. Can also use make, e.g. "make test"
+script: di
   - python -m unittest discover -p "*_test.py"
