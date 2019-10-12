@@ -12,5 +12,5 @@ install:
   - pip install -r requirements.txt
 
 # script to run tests. Can also use make, e.g. "make test"
-script: di
+script: 
   - python -m unittest discover -p "*_test.py"
