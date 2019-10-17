@@ -105,3 +105,6 @@ class FractionTest(unittest.TestCase):
         self.assertFalse(nan == Fraction(0)) # NaN != 0/1 
         self.assertFalse(nan == inf) #Nan != infinity
         self.assertTrue(nan == x) #NaN = Nan       
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
