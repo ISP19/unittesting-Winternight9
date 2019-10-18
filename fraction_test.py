@@ -35,7 +35,8 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(1,f.denominator)
         f = Fraction(-3,8)
         self.assertEqual(-3,f.numerator)
-        self.assertEqual(8,f.denominator)        
+        self.assertEqual(8,f.denominator)    
+        
 
     def test_add(self):
         # 3/4 = 2/3 + 1/12
@@ -44,6 +45,10 @@ class FractionTest(unittest.TestCase):
         self.assertEqual(Fraction(1),Fraction(1,3) + Fraction(2,3)) 
         self.assertEqual(Fraction(1),Fraction(7,10) + Fraction(3,10)) #float + float number
     
+    def test_add_with_list(self):
+        with self.assertRaises(TypeError):
+            frac = Fraction(2,5) + [1,4]
+        
 
     def test_fraction_with_denominator_is_empty_list(self):
         #test wrong type
@@ -54,6 +59,7 @@ class FractionTest(unittest.TestCase):
         #test wrong type
         with self.assertRaises(TypeError):
             frac = Fraction("aaa",6)   
+        
 
     def test_mul(self):
         self.assertEqual(Fraction(6,8),Fraction(2,2) * Fraction(3,4))
