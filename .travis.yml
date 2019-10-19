@@ -15,6 +15,6 @@ install:
 # script to run tests. Can also use make, e.g. "make test"
 script: 
   - python -m unittest discover -p "*_test.py"
-  
+  -  coverage run fraction_test.py
 after_success:
   - codecov
