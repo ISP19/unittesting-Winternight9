@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/Winternight9/unittesting-Winternight9.svg?branch=master)](https://travis-ci.com/Winternight9/unittesting-Winternight9)
+[![codecov](https://codecov.io/gh/Winternight9/unittesting-Winternight9/branch/master/graph/badge.svg)](https://codecov.io/gh/Winternight9/unittesting-Winternight9)
 ## Unit Testing Assignment
 
 by Supakorn Tangpremsri.
